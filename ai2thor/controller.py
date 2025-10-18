@@ -1358,10 +1358,10 @@ class Controller(object):
         releases_dir = self.releases_dir
         if platform_architecture()[0] != "64bit":
             raise Exception("Only 64bit currently supported")
-        if branch:
-            commits = self._branch_commits(branch)
-        elif commit_id:
+        if commit_id:
             commits = [commit_id]
+        elif branch:
+            commits = self._branch_commits(branch)
         else:
             commits = self.local_commits()
 
