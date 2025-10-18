@@ -735,7 +735,7 @@ class Controller(object):
         if (self.server.unity_proc is not None) and (
             target_width != self.last_event.screen_width
             or target_height != self.last_event.screen_height
-        ):
+        ) and not self.headless:
             self.step(
                 action="ChangeResolution",
                 x=target_width,
